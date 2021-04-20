@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="logstarter" />
+        <module name="common" />
+        <module name="exceptionHandler" />
+        <module name="swaggerCommon" />
+        <module name="service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Log" target="1.8" />
+      <module name="untitled" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Log" options="-parameters" />
+      <module name="common" options="-parameters" />
+      <module name="exceptionHandler" options="-parameters" />
+      <module name="exceptionHandlerTest" options="-parameters" />
+      <module name="logstarter" options="-parameters" />
+      <module name="service" options="-parameters" />
+      <module name="swaggerCommon" options="-parameters" />
+      <module name="untitled" options="-parameters" />
+    </option>
+  </component>
+</project>

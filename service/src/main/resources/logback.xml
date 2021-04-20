@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 扫描变动 | 扫描间隔 | 调试模式 -->
+<configuration
+  xmlns="http://ch.qos.logback/xml/ns/logback"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://ch.qos.logback/xml/ns/logback
+        https://raw.githubusercontent.com/enricopulatzo/logback-XSD/master/src/main/xsd/logback.xsd">
+
+
+  <!-- region 彩色日志 -->
+  <!-- 彩色日志依赖的渲染类 -->
+  <conversionRule conversionWord="clr"
+    converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
+  <conversionRule conversionWord="wex"
+    converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
+  <conversionRule conversionWord="wEx"
+    converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"/>
+
+  <property name="CONSOLE_LOG_PATTERN"
+    value="${CONSOLE_LOG_PATTERN:-%clr(%d{[HH:mm:ss]}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(-){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan}%clr([%L]){magenta} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+  <property name="FILE_LOG_PATTERN"
+    value="%d{MM-dd HH:mm:ss.SSS} [%thread] [%-5level] %msg - %logger{35}:%L%n"/>
+  <property name="logging.path" value="./logs"/>
+  <springProperty scope="context" name="applicationName" source="spring.application.name"/>
+  <springProperty scope="context" name="profileName" source="spring.profiles.active"/>
+
+
+  <!-- 输出到控制台 -->
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder charset="UTF-8" class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <pattern>${CONSOLE_LOG_PATTERN} "canglaoshishidashen""""""</pattern>
+    </encoder>
+  </appender>
+  <!-- endregion -->
+
+
+  <!--    logstash-->
+  <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+    <param name="Encoding" value="UTF-8"/>
+    <destination>192.168.124.128:50050</destination>
+    <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder">
+    </encoder>
+  </appender>
+
+
+
+
+<!--  <appender name="ZUNCHEN"-->
+<!--    class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--    <file>${logging.path}/${applicationName}.log</file>-->
+<!--    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--      <fileNamePattern>${logging.path}/${applicationName}.log.%i%d{yyyy-MM-dd}.gz-->
+<!--      </fileNamePattern>-->
+<!--      <timeBasedFileNamingAndTriggeringPolicy-->
+<!--        class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">-->
+<!--        <maxFileSize>50MB</maxFileSize>-->
+<!--      </timeBasedFileNamingAndTriggeringPolicy>-->
+<!--    </rollingPolicy>-->
+<!--    <encoder charset="UTF-8">-->
+<!--      <pattern>${FILE_LOG_PATTERN}</pattern>-->
+<!--    </encoder>-->
+<!--  </appender>-->
+
+<!--  <appender name="ZUNCHEN_ERROR"-->
+<!--    class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
+<!--      <level>ERROR</level>-->
+<!--    </filter>-->
+<!--    <file>${logging.path}/${applicationName}-error.log</file>-->
+<!--    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--      <fileNamePattern>${logging.path}/${applicationName}-error.log.%i%d{yyyy-MM-dd}.gz-->
+<!--      </fileNamePattern>-->
+<!--      <timeBasedFileNamingAndTriggeringPolicy-->
+<!--        class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">-->
+<!--        <maxFileSize>50MB</maxFileSize>-->
+<!--      </timeBasedFileNamingAndTriggeringPolicy>-->
+<!--    </rollingPolicy>-->
+<!--    <encoder charset="UTF-8">-->
+<!--      <pattern>${FILE_LOG_PATTERN}</pattern>-->
+<!--    </encoder>-->
+<!--  </appender>-->
+
+  <!-- endregion -->
+  <root level="INFO">
+    <appender-ref ref="logstash"/>
+    <appender-ref ref="CONSOLE"/>
+<!--    <appender-ref ref="ZUNCHEN"/>-->
+<!--    <appender-ref ref="ZUNCHEN_ERROR"/>-->
+  </root>
+  <logger name="com" level="error"/>
+
+</configuration>
