@@ -2,15 +2,17 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="logstarter" />
         <module name="common" />
-        <module name="exceptionHandler" />
         <module name="swaggerCommon" />
-        <module name="service" />
+        <module name="dependencies" />
+        <module name="exceptionHandler" />
+        <module name="studentService" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -22,10 +24,12 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Log" options="-parameters" />
       <module name="common" options="-parameters" />
+      <module name="dependencies" options="-parameters" />
       <module name="exceptionHandler" options="-parameters" />
       <module name="exceptionHandlerTest" options="-parameters" />
       <module name="logstarter" options="-parameters" />
       <module name="service" options="-parameters" />
+      <module name="studentService" options="-parameters" />
       <module name="swaggerCommon" options="-parameters" />
       <module name="untitled" options="-parameters" />
     </option>

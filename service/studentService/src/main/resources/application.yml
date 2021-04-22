@@ -1,0 +1,18 @@
+server:
+  port: 8111
+db: test
+spring:
+  application:
+    name: studentApplication
+  datasource:
+#    druid:
+    username: root
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/${db}?charracterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+    driverClassName: com.mysql.cj.jdbc.Driver
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+logging:
+  level:
+    com.cang.dao: debug
+    com.cang: warn

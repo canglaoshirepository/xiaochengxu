@@ -35,12 +35,12 @@
 
 
   <!--    logstash-->
-  <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
-    <param name="Encoding" value="UTF-8"/>
-    <destination>192.168.124.128:50050</destination>
-    <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder">
-    </encoder>
-  </appender>
+<!--  <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">-->
+<!--    <param name="Encoding" value="UTF-8"/>-->
+<!--    <destination>192.168.124.128:50050</destination>-->
+<!--    <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder">-->
+<!--    </encoder>-->
+<!--  </appender>-->
 
 
 
@@ -82,7 +82,7 @@
 
   <!-- endregion -->
   <root level="INFO">
-    <appender-ref ref="logstash"/>
+<!--    <appender-ref ref="logstash"/>-->
     <appender-ref ref="CONSOLE"/>
 <!--    <appender-ref ref="ZUNCHEN"/>-->
 <!--    <appender-ref ref="ZUNCHEN_ERROR"/>-->
