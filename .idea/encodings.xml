@@ -5,8 +5,9 @@
     <file url="file://$PROJECT_DIR$/dependencies/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/exceptionHandler/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/logstarter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/redisstarter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service/studentService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/teacherService/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/swaggerCommon/src/main/java" charset="UTF-8" />
   </component>
 </project>

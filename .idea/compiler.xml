@@ -8,10 +8,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="logstarter" />
+        <module name="redisstarter" />
         <module name="common" />
         <module name="swaggerCommon" />
-        <module name="dependencies" />
         <module name="exceptionHandler" />
+        <module name="dependencies" />
+        <module name="teacherService" />
         <module name="studentService" />
       </profile>
     </annotationProcessing>
@@ -28,9 +30,11 @@
       <module name="exceptionHandler" options="-parameters" />
       <module name="exceptionHandlerTest" options="-parameters" />
       <module name="logstarter" options="-parameters" />
+      <module name="redisstarter" options="-parameters" />
       <module name="service" options="-parameters" />
       <module name="studentService" options="-parameters" />
       <module name="swaggerCommon" options="-parameters" />
+      <module name="teacherService" options="-parameters" />
       <module name="untitled" options="-parameters" />
     </option>
   </component>

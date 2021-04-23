@@ -9,11 +9,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @Api("学生控制器")
@@ -22,6 +25,8 @@ import java.util.List;
 public class StudentController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    @Resource
+    private RedisTemplate<String,Object> redisTemplate;
     @Autowired
     private IStudentService studentService;
 
@@ -35,7 +40,9 @@ public class StudentController {
     public ResponseMessage<List<StudentDTO>> selectAll(){
         logger.info("info");
         logger.warn("warn");
+        Object student = redisTemplate.opsForValue().get("student");
         List<StudentDTO> studentDTOS = studentService.selectAll();
+        redisTemplate.opsForValue().set("studeng",studentDTOS,60l, TimeUnit.SECONDS);
         return ResponseWrapper.ok(studentDTOS,"success","200");
     }
 }
