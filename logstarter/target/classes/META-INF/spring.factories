@@ -1,3 +1,0 @@
-# suppress inspection "SpellCheckingInspection" for whole file
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.cang.config.AutoConfiguration

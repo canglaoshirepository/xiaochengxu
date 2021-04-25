@@ -5,6 +5,7 @@ spring:
     name: kafkaconsumer
   kafka:
     consumer:
+      bootstrap-servers: 127.0.0.1:9092
       group-id: defaultGroup
       # 是否自动提交offset
       enable-auto-commit: true

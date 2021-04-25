@@ -1,5 +1,9 @@
 server:
   port: 10000
+config:
+  nacos:
+    ip: 127.0.0.1
+    port: 8848
 spring:
   application:
     name: kafkaProducer
@@ -25,3 +29,9 @@ spring:
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
   # 自定义分区器
   # spring.kafka.producer.properties.partitioner.class=com.felix.kafka.producer.CustomizePartitioner
+  cloud:
+    nacos:
+      discovery:
+        enabled: true
+        service: ${spring.application.name}
+        server-addr: ${config.nacos.ip}:${config.nacos.port}
