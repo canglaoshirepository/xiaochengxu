@@ -32,6 +32,9 @@ public class StudentController {
     private KafkaTemplate<String,String> kafkaTemplate;
     @Autowired
     private IStudentService studentService;
+    @Autowired
+    private TeacherController teacherController;
+
 
     @PostMapping("/getNameById")
     public String getNameById(Integer id){
@@ -46,7 +49,13 @@ public class StudentController {
         Object student = redisTemplate.opsForValue().get("student");
         List<StudentDTO> studentDTOS = studentService.selectAll();
         redisTemplate.opsForValue().set("studeng",studentDTOS,60l, TimeUnit.SECONDS);
-        return ResponseWrapper.ok(studentDTOS,"success","200");
+        return ResponseWrapper.ok(studentDTOS);
+    }
+
+    @PostMapping("/testFeign")
+    public ResponseMessage<String> testFeign(){
+        teacherController.selectAll();
+        return ResponseWrapper.ok("feignsuccess");
     }
 }
 

@@ -6,5 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @MapperScan("com.cang.dao")
 public class TeacherApplication {
+    public static void main(String[] args) {
 
+    }
 }

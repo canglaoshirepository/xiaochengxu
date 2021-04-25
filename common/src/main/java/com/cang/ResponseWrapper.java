@@ -26,8 +26,8 @@ public class ResponseWrapper<T> implements Serializable {
         return new ResponseMessage<T>();
     }
 
-    public static <T> ResponseMessage<T> ok(T t, String msg, String code) {
-        return new ResponseMessage<T>().ok(msg, code, t);
+    public static <T> ResponseMessage<T> ok(T t) {
+        return new ResponseMessage<T>().ok(t,"success", "200");
     }
 
 

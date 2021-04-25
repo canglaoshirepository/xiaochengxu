@@ -30,7 +30,7 @@ public class ResponseMessage<T> implements Serializable {
             return new ResponseWrapper<T>(this.msg, this.code, this.t);
         }
 
-        public ResponseMessage ok(String msg, String code, T t) {
+        public ResponseMessage ok( T t,String msg, String code) {
             this.msg = msg;
             this.code = code;
             this.t = t;
