@@ -7,5 +7,8 @@ public class TeacherDTO {
 
     private Integer id;
     private String name;
-    private Integer className;
+    private String subject;
+    private Integer age;
+    private Integer sex;
+    private String sexName;
 }

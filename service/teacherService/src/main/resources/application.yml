@@ -1,0 +1,14 @@
+server:
+  port: 9001
+ip: 192.168.2.135
+db: jdbc:mysql://127.0.0.1:3306/school?charracterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+spring:
+  application:
+    name: teacherService
+  datasource:
+    url: ${db}
+    username: root
+    password: root
+    driverClassName: com.mysql.cj.jdbc.Driver
+mybatis:
+  mapper-locations: mapper/*.xml

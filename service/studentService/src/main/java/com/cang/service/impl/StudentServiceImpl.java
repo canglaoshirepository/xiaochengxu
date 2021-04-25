@@ -3,6 +3,7 @@ package com.cang.service.impl;
 import com.cang.dao.StudentMapper;
 import com.cang.dto.StudentDTO;
 import com.cang.service.IStudentService;
+import com.cang.teacher.ITeacherFeignClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,9 @@ public class StudentServiceImpl implements IStudentService {
     @Autowired
     private StudentMapper studentDAO;
 
+    @Autowired
+    private ITeacherFeignClient teacherFeignClient;
+
     @Override
     public String getNameById(Integer id) {
         return studentDAO.getNameById(id);
@@ -20,6 +24,7 @@ public class StudentServiceImpl implements IStudentService {
 
     @Override
     public List<StudentDTO> selectAll() {
+        System.out.println(teacherFeignClient.selectAll().toString());
         return studentDAO.selectAll();
     }
 }

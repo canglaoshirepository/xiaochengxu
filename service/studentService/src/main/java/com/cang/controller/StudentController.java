@@ -51,11 +51,5 @@ public class StudentController {
         redisTemplate.opsForValue().set("studeng",studentDTOS,60l, TimeUnit.SECONDS);
         return ResponseWrapper.ok(studentDTOS);
     }
-
-    @PostMapping("/testFeign")
-    public ResponseMessage<String> testFeign(){
-        teacherController.selectAll();
-        return ResponseWrapper.ok("feignsuccess");
-    }
 }
 

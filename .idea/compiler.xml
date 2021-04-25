@@ -15,6 +15,7 @@
         <module name="redisstarter" />
         <module name="dependencies" />
         <module name="exceptionHandler" />
+        <module name="feignclient" />
         <module name="kafkaproducer" />
         <module name="studentService" />
       </profile>
@@ -31,6 +32,7 @@
       <module name="dependencies" options="-parameters" />
       <module name="exceptionHandler" options="-parameters" />
       <module name="exceptionHandlerTest" options="-parameters" />
+      <module name="feignclient" options="-parameters" />
       <module name="kafkaconsumer" options="-parameters" />
       <module name="kafkaproducer" options="-parameters" />
       <module name="logstarter" options="-parameters" />
