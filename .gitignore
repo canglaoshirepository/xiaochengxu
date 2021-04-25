@@ -7,4 +7,4 @@ build/
 .settings/
 *.class
 *.jar
-target/
+/target/
