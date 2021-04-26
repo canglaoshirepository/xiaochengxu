@@ -32,22 +32,17 @@
         </dependency>
         <dependency>
             <groupId>org.example</groupId>
+            <artifactId>feignclient</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.example</groupId>
             <artifactId>redisstarter</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework.kafka</groupId>
-            <artifactId>spring-kafka</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.example</groupId>
-            <artifactId>teacherService</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.example</groupId>
-            <artifactId>feignclient</artifactId>
+            <artifactId>logstarter</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

@@ -4,6 +4,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration("feignAutoConfiguration")
-@ComponentScan("com.cang")
+@ComponentScan("com.cang.starter")
 public class AutoConfiguration {
 }
