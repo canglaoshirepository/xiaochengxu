@@ -21,15 +21,13 @@ import java.util.concurrent.TimeUnit;
 
 @RestController
 @Api("学生控制器")
-@RequestMapping("/student")
+@RequestMapping("/student/")
 @Slf4j
 public class StudentController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Resource
     private RedisTemplate<String,Object> redisTemplate;
-    @Resource
-    private KafkaTemplate<String,String> kafkaTemplate;
     @Autowired
     private IStudentService studentService;
     @Autowired
@@ -46,9 +44,9 @@ public class StudentController {
     public ResponseMessage<List<StudentDTO>> selectAll(){
         logger.info("info");
         logger.warn("warn");
-        Object student = redisTemplate.opsForValue().get("student");
+        //Object student = redisTemplate.opsForValue().get("student");
         List<StudentDTO> studentDTOS = studentService.selectAll();
-        redisTemplate.opsForValue().set("studeng",studentDTOS,60l, TimeUnit.SECONDS);
+        //redisTemplate.opsForValue().set("studeng",studentDTOS,60l, TimeUnit.SECONDS);
         return ResponseWrapper.ok(studentDTOS);
     }
 }
