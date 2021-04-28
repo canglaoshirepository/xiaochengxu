@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 @RestController
 @Api("学生控制器")
@@ -28,27 +27,24 @@ public class StudentController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Resource
-    private RedisTemplate<String,Object> redisTemplate;
+    private RedisTemplate<String, Object> redisTemplate;
     @Autowired
     private IStudentService studentService;
 
 
-@SaveLog
+    @SaveLog
     @PostMapping("/getNameById")
     @ApiOperation("根据名称查询")
-    public String getNameById(Integer id){
-       return studentService.getNameById(id);
+    public String getNameById(Integer id) {
+        return studentService.getNameById(id);
     }
 
 
     @PostMapping("/selectAll")
-    public ResponseMessage<List<StudentDTO>> selectAll(){
-        logger.info("info");
-        logger.warn("warn");
+    @SaveLog
+    public ResponseMessage<List<StudentDTO>> selectAll() {
         //Object student = redisTemplate.opsForValue().get("student");
-        List<StudentDTO> studentDTOS = studentService.selectAll();
-        //redisTemplate.opsForValue().set("studeng",studentDTOS,60l, TimeUnit.SECONDS);
-        return ResponseWrapper.ok(studentDTOS);
+        return ResponseWrapper.ok(studentService.selectAll());
     }
 }
 

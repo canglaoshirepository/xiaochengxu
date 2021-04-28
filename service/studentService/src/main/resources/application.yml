@@ -15,6 +15,12 @@ spring:
     nacos:
       discovery:
         server-addr: ${ip}:8848
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 3000 #单位毫秒
+        readTimeout: 12000 #单位毫秒
 
   #允许存在多个Feign调用相同Service的接口
  # main:

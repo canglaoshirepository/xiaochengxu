@@ -1,7 +1,7 @@
 server:
   port: 9001
 ip: 192.168.2.135
-db: jdbc:mysql://127.0.0.1:3306/school?charracterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+db: jdbc:mysql://${ip}:3306/school?charracterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
 spring:
   application:
     name: teacherApplication

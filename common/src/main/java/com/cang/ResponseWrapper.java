@@ -30,6 +30,8 @@ public class ResponseWrapper<T> implements Serializable {
         return new ResponseMessage<T>().ok(t,"success", "200");
     }
 
-
+    public static <T> ResponseMessage<T> error(T t) {
+        return new ResponseMessage<T>().ok(t,"error", "500");
+    }
 
 }

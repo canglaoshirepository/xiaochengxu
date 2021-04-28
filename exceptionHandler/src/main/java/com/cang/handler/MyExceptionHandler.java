@@ -1,5 +1,7 @@
 package com.cang.handler;
 
+import com.cang.ResponseMessage;
+import com.cang.ResponseWrapper;
 import com.cang.dto.BussinessException;
 import com.cang.dto.ExceptionDTO;
 import org.springframework.http.HttpStatus;
@@ -25,17 +27,19 @@ public class MyExceptionHandler {
 
     @ExceptionHandler(Throwable.class)
     @ResponseBody
-    public ExceptionDTO exceptionResult(Throwable e){
-        ExceptionDTO exceptionDTO = new ExceptionDTO();
-        exceptionDTO.setErrorMsg(e.getMessage());
-        return exceptionDTO;
+    public ResponseMessage exceptionResult(Throwable e){
+        return ResponseWrapper.error(e.getMessage());
     }
 
     @ExceptionHandler(Exception.class)
     @ResponseBody
-    public ExceptionDTO exceptionResult(Exception e){
-        ExceptionDTO exceptionDTO = new ExceptionDTO();
-        exceptionDTO.setErrorMsg(e.getMessage());
-        return exceptionDTO;
+    public ResponseMessage exceptionResult(Exception e){
+        return ResponseWrapper.error(e.getMessage());
+    }
+
+    @ExceptionHandler(ClassCastException.class)
+    @ResponseBody
+    public ResponseMessage exceptionResult(ClassCastException e){
+        return ResponseWrapper.error(e.getMessage());
     }
 }
