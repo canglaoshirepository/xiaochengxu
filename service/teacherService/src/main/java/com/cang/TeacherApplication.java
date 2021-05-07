@@ -8,8 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @MapperScan("com.cang.dao")
-@EnableFeignClients
-@EnableDiscoveryClient
+//@EnableFeignClients
 public class TeacherApplication {
     public static void main(String[] args) {
         SpringApplication.run(TeacherApplication.class);

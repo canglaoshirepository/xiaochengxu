@@ -87,6 +87,6 @@
 <!--    <appender-ref ref="ZUNCHEN"/>-->
 <!--    <appender-ref ref="ZUNCHEN_ERROR"/>-->
   </root>
-  <logger name="com" level="error"/>
+<!--  <logger name="com" level="error"/>-->
 
 </configuration>

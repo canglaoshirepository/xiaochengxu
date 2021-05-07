@@ -1,7 +1,7 @@
 server:
   port: 8111
 db: school
-ip: 192.168.2.135
+ip: 10.123.7.110
 spring:
   application:
     name: studentApplication
@@ -15,6 +15,7 @@ spring:
     nacos:
       discovery:
         server-addr: ${ip}:8848
+#        namespace: hsa-oms.yml
 feign:
   client:
     config:
@@ -30,4 +31,4 @@ mybatis:
 logging:
   level:
     com.cang.dao: debug
-    com.cang: warn
+    com.cang: debug

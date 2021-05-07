@@ -1,0 +1,202 @@
+spring:
+#  application:
+#    name: pro
+  main:
+    allow-bean-definition-overriding: true
+  freemarker:
+    template-loader-path: classpath:/templates
+    cache: false
+    charset: UTF-8
+    check-template-location: true
+    content-type: application/json;charset=UTF-8
+    expose-request-attributes: false
+    expose-session-attributes: false
+    request-context-attribute: request
+    suffix: .ftl
+    settings:
+      classic_compatible: true
+server:
+  port: 8080
+  servlet:
+    context-path: /oms
+project:
+  version: 1
+areaCode: 500000
+#请问
+hsaf:
+  trace:
+    provincecode: 500000
+    monitorurl: http://47.94.9.211:8080/api/monitor/data/save/list
+    job_scheduled: 0 0/10 * * * ?
+    defaultBizCode: 0
+    sampling: false
+mybatis:
+  database:
+    provider:
+      type: mysql
+  configuration:
+    database-id: ${mybatis.database.provider.type:mysql}
+session:
+  redis:
+    cluster:
+      clusterNodes: 10.123.45.153:7001,10.123.45.153:7002,10.123.45.117:7001,10.123.45.117:7002,10.123.45.236:7001,10.123.45.236:7002
+      nodes: 10.123.45.153:7001,10.123.45.153:7002,10.123.45.117:7001,10.123.45.117:7002,10.123.45.236:7001,10.123.45.236:7002
+    password: cqybj@2021pn
+    database: 0
+    timeout: 30000
+    pool:
+      maxIdle: 5
+      maxTotal: 10
+      maxWaitMillis: 5000
+      testOnBorrow: false
+      testOnReturn: false
+
+cache:
+  flag: true
+  cluster0:
+    maxRedirects: 5
+    clusterNodes:  10.123.45.153:7001,10.123.45.153:7002,10.123.45.117:7001,10.123.45.117:7002,10.123.45.236:7001,10.123.45.236:7002
+    nodes:  10.123.45.153:7001,10.123.45.153:7002,10.123.45.117:7001,10.123.45.117:7002,10.123.45.236:7001,10.123.45.236:7002
+    cacheName: redis_rj_oms_test
+    password: cqybj@2021pn
+
+fsstore:
+  url: http://10.123.31.130:23000/group1
+  bucket: oss-oms-test
+  #  url: D:\\temp\\yxjc_img\\
+  local: false
+#fdfs
+fdfs:
+  so-timeout: 1501
+  connect-timeout: 601
+  tracker-list[0]: 10.123.31.15:22122
+
+
+db:
+  database: POSTGRESQL
+  date:
+    columns: stt_date,stt_mon,setl_time,stt_ym
+  druid:
+    mysql:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://10.123.36.8:3306/oms?connectTimeout=10000&socketTimeout=300000&autoReconnect=true&useSSL=false&allowMultiQueries=true&autoReconnectForPools=true
+      username: root
+      password: cqybj@2021pn
+      validationQuery: SELECT 'x'
+    #    pipeline:
+    #      driverClassName: org.postgresql.Driver
+    #      url: jdbc:postgresql://30.99.137.101:7433/dm
+    #      username: oper_monitor
+    #      password: Osjzt#oot6
+    #      validationQuery: SELECT now()
+    pg:
+      #      driverClassName: org.postgresql.Driver
+      #      url: jdbc:postgresql://30.99.137.101:7433/dm
+      #      username: oper_monitor
+      #      password: Osjzt#oot6
+      #      validationQuery: SELECT now()
+      driverClassName: com.vertica.jdbc.Driver
+      url: jdbc:vertica://10.123.39.2:5433/hxqmpp?ConnectionLoadBalance=1?BackupServerNode=10.123.39.3:5433,10.123.39.4:5433,10.123.39.5:5433,10.123.39.6:5433,10.123.39.7:5433,10.123.39.8:5433,10.123.39.9:5433,10.123.39.10:5433,10.123.39.11:5433
+      username: pingan02
+      password: pingan@2021
+      validationQuery: SELECT now()
+  type:
+    mysql: dataSource_mysql
+    pipeline: dataSource_pipeline
+    pg: dataSource_pg
+    mysqlbs: dataSource_mysqlbs
+
+pagehelper:
+  auto-runtime-dialect: true
+
+logging:
+  level:
+    root: Warn
+    cn.hsa: DEBUG
+    com.ibatis: DEBUG
+    org.springframework.boot.SpringApplication: INFO
+
+#add by zhj
+oss:
+  endpoint: test
+#add by zhj
+
+swagger:
+  webPackage: com.hsa.oms.customize
+  apiPackage: com.hsa.oms.customize
+  title: 运行监测系统
+  description: API
+  termsOfServiceUrl: http://localhost:8080/hsa-oms
+  contact:
+    name: abc
+    url: http://wiki.yb.paic.com.cn/pages/viewpage.action?pageId=74460511
+    email: xxx
+  version: 1.0.0
+
+um-api:
+  systemId: 1001
+  secretKey: 3bdaa512a46b11e9b2fa067b04001843
+  dubboFlag: false
+  mockFlag: false
+data:
+  auth:
+    province: prov_admdvs
+    city: city_admdvs
+    area: admdvs
+dubbo:
+  registry:
+    address: zookeeper://10.123.30.1:47028
+  protocol:
+    name: dubbo
+    port: 20890
+  metadata-report:
+    address: zookeeper://10.123.30.1:47028
+
+security:
+  type: hsa-sso
+  oauth2:
+    client:
+      access-token-uri: http://127.0.0.1:7001/uaa/oauth/token
+      user-authorization-uri: http://127.0.0.1:7001/uaa/oauth/authorize
+      client-id: acme1
+      client-secret: acmesecret1
+      client-authentication-scheme: header
+      permits: /test
+    resource:
+      token-info-uri: http://localhost:9005/oauth/check_token
+      jwt:
+        key-value: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnGp/Q5lh0P8nPL21oMMrt2RrkT9AW5jgYwLfSUnJVc9G6uR3cXRRDCjHqWU5WYwivcF180A6CWp/ireQFFBNowgc5XaA0kPpzEtgsA5YsNX7iSnUibB004iBTfU9hZ2Rbsc8cWqynT0RyN4TP1RYVSeVKvMQk4GT1r7JCEC+TNu1ELmbNwMQyzKjsfBXyIOCFU/E94ktvsTZUHF4Oq44DBylCDsS1k7/sfZC2G5EU7Oz0mhG8+Uz6MSEQHtoIi6mc8u64Rwi3Z3tscuWG2ShtsUFuNSAFNkY7LkLn+/hxLCu2bNISMaESa8dG22CIMuIeRLVcAmEWEWH5EEforTg+QIDAQAB
+  mode: gateway
+  referer:
+
+# security:
+#   type: hsa-sso
+#   request-type: hsa-sso
+#   key: 3bdab6e2a46b11e9b2fa067b04001843
+#   oauth2:
+#     client:
+#       access-token-uri: http://127.0.0.1:9999/uaa/oauth/token
+#       user-authorization-uri: http://127.0.0.1:9999/uaa/oauth/authorize
+#       client-id: acme1
+#       client-secret: acmesecret1
+#       client-authentication-scheme: header
+#     resource:
+#       jwt:
+#         key-value: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnGp/Q5lh0P8nPL21oMMrt2RrkT9AW5jgYwLfSUnJVc9G6uR3cXRRDCjHqWU5WYwivcF180A6CWp/ireQFFBNowgc5XaA0kPpzEtgsA5YsNX7iSnUibB004iBTfU9hZ2Rbsc8cWqynT0RyN4TP1RYVSeVKvMQk4GT1r7JCEC+TNu1ELmbNwMQyzKjsfBXyIOCFU/E94ktvsTZUHF4Oq44DBylCDsS1k7/sfZC2G5EU7Oz0mhG8+Uz6MSEQHtoIi6mc8u64Rwi3Z3tscuWG2ShtsUFuNSAFNkY7LkLn+/hxLCu2bNISMaESa8dG22CIMuIeRLVcAmEWEWH5EEforTg+QIDAQAB
+#   mode: normal #gateway
+job:
+  remote-online:
+    interval: 10
+  fixed-settlement:
+    interval: 5
+
+checkToken:
+  httpUrl: http://172.17.23.215:8080/tps/api/auth/query_app_user
+
+
+screen:
+  path:
+    config: /oms-ui/hsp-yxjc-h5/screenEdit/index.html#/noMenuLayout/preview
+
+character:
+  encoding: UTF-8

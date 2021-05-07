@@ -1,5 +1,6 @@
 package com.cang.controller;
 
+import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.cang.ResponseMessage;
 import com.cang.ResponseWrapper;
 import com.cang.annotation.SaveLog;
@@ -11,6 +12,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,8 +26,11 @@ import java.util.List;
 @Api("学生控制器")
 @RequestMapping("/student/")
 @Slf4j
+@RefreshScope
 public class StudentController {
 
+    @Value(value = "${content.test}")
+    private String flag;
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
@@ -45,6 +51,11 @@ public class StudentController {
     public ResponseMessage<List<StudentDTO>> selectAll() {
         //Object student = redisTemplate.opsForValue().get("student");
         return ResponseWrapper.ok(studentService.selectAll());
+    }
+
+    @PostMapping("/test")
+    public ResponseMessage<String> testNacos(){
+        return ResponseWrapper.ok(flag);
     }
 }
 
