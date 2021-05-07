@@ -6,21 +6,21 @@ import lombok.Data;
 import java.io.Serializable;
 
 @Data
-public class ResponseWrapper<T> implements Serializable {
+public class ResponseWrapper implements Serializable {
 
 
-    private String msg;
-    private String code;
-    private T t;
+//    private String msg;
+//    private String code;
+//    private T t;
 
     public ResponseWrapper() {
     }
 
-    public ResponseWrapper(String msg, String code, T data) {
-        this.msg = msg;
-        this.code = code;
-        this.t = data;
-    }
+//    public ResponseWrapper(String msg, String code, T data) {
+//        this.msg = msg;
+//        this.code = code;
+//        this.t = data;
+//    }
 
     public static <T> ResponseMessage<T> builder() {
         return new ResponseMessage<T>();

@@ -17,15 +17,14 @@ spring:
         server-addr: ${ip}:8848
 #        namespace: hsa-oms.yml
 feign:
-  client:
-    config:
-      default:
-        connectTimeout: 3000 #单位毫秒
-        readTimeout: 12000 #单位毫秒
-
   #允许存在多个Feign调用相同Service的接口
  # main:
    # allow-bean-definition-overriding: true
+  hystrix:
+    enabled: true
+ribbon:
+  ReadTimeout: 6000
+
 mybatis:
   mapper-locations: classpath:mapper/*.xml
 logging:

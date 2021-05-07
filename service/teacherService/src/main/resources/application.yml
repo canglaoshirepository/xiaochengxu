@@ -16,3 +16,6 @@ spring:
         server-addr: ${ip}:8848
 mybatis:
   mapper-locations: mapper/*.xml
+logging:
+  level:
+    com.cang: debug
