@@ -8,12 +8,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="logstarter" />
-        <module name="exceptionHandler" />
+        <module name="teacherService" />
         <module name="studentService" />
         <module name="redisstarter" />
+        <module name="gateway" />
         <module name="kafkaconsumer" />
         <module name="swaggerCommon" />
-        <module name="teacherService" />
+        <module name="exceptionHandler" />
         <module name="dependencies" />
         <module name="feignclient" />
         <module name="kafkaproducer" />
@@ -33,6 +34,7 @@
       <module name="exceptionHandler" options="-parameters" />
       <module name="exceptionHandlerTest" options="-parameters" />
       <module name="feignclient" options="-parameters" />
+      <module name="gateway" options="-parameters" />
       <module name="kafkaconsumer" options="-parameters" />
       <module name="kafkaproducer" options="-parameters" />
       <module name="logstarter" options="-parameters" />
