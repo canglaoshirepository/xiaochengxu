@@ -1,5 +1,6 @@
 package com.cang.service.impl;
 
+import com.cang.SexEnum;
 import com.cang.dao.ITeacherMapper;
 import com.cang.dto.TeacherDTO;
 import com.cang.service.ITeacherService;
@@ -22,11 +23,14 @@ public class TeacherServiceImpl implements ITeacherService {
             teacherDTOS.forEach(item -> {
                 Integer sex = item.getSex();
                 if (sex == 1){
-
+                    String sexName = SexEnum.FEMAL.getName();
+                    item.setSexName(sexName);
+                }else {
+                    String name = SexEnum.MALE.getName();
+                    item.setSexName(name);
                 }
             });
         }
-
         return teacherDTOS;
     }
 }
