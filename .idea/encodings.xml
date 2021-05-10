@@ -10,6 +10,7 @@
     <file url="file://$PROJECT_DIR$/kafkaproducer/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/logstarter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/redisstarter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/excel_download/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service/studentService/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service/studentService/src/main/resources/application-pro.yml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service/teacherService/src/main/java" charset="UTF-8" />

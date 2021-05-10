@@ -15,12 +15,13 @@ public class LogSaveAOP {
 
     @Around("log()")
     public Object doAround(ProceedingJoinPoint joinPoint){
+        Object obj = null;
         try {
             System.out.println("log test...");
-            joinPoint.proceed();
+            obj = joinPoint.proceed();
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }
-        return "test";
+        return obj;
     }
 }

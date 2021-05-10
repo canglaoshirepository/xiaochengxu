@@ -1,0 +1,15 @@
+server:
+  port: 10010
+spring:
+  application:
+    name: downloadApplication
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 1024MB
+      max-request-size: 1024MB
+
+

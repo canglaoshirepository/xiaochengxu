@@ -1,6 +1,5 @@
 package com.cang.controller;
 
-import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.cang.ResponseMessage;
 import com.cang.ResponseWrapper;
 import com.cang.annotation.SaveLog;
@@ -9,8 +8,6 @@ import com.cang.service.IStudentService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -31,7 +28,6 @@ public class StudentController {
 
     @Value(value = "${content.test}")
     private String flag;
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
     @Autowired

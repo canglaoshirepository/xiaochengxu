@@ -15,6 +15,7 @@
     <modules>
         <module>studentService</module>
         <module>teacherService</module>
+        <module>excel_download</module>
     </modules>
     <dependencies>
 <!--        <dependency>-->

@@ -1,15 +1,14 @@
 package com.cang;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
+
 @SpringBootApplication
-@MapperScan("com.cang.dao")
 //@EnableFeignClients
-public class StudentApplication {
+public class DownloadApplication {
     public static void main(String[] args) {
-        SpringApplication.run(StudentApplication.class,args);
+        SpringApplication.run(DownloadApplication.class);
     }
 }

@@ -16,6 +16,12 @@ spring:
             - Path=/api/teacher/**
           filters:
             - StripPrefix=1
+        - id: downloadApplicationTest
+          uri: lb://downloadApplication
+          predicates:
+            - Path=/api/download/**
+          filters:
+            - StripPrefix=1
     nacos:
       server-addr: 127.0.0.1:8848
 server:

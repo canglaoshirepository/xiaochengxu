@@ -1,0 +1,48 @@
+远程账号:
+pa520000/Paic@8888 贵州省  
+
+pa520300/Paic@8888  遵义   
+
+paprd/Paic@8888  六盘水
+
+
+nginx: 10.110.17.50
+账户：520000
+密码：1qaz!QAZ
+六盘水：paprd/Paic@8888
+
+服务地址：
+http://10.110.17.50/#/home
+
+bug文档：
+https://docs.qq.com/sheet/DVVJmeURsc1VDTUtj?tab=1bb2qu
+
+http://10.110.17.50/#/home
+
+连接vertica的VPN：
+jiangqinghong/Iot@1990515
+luocheng/pa@2021
+
+
+
+nginx: 10.110.17.50
+贵州生产省账号：pingan/Paic@123
+贵州生产六盘水市账号：paprd/Paic@8888
+
+生产阿里云登录：papro：#Pa@21paicPawsxx
+
+
+
+# pg:
+    #   driverClassName: org.postgresql.Driver
+    #   url: jdbc:postgresql://10.123.31.215:5432/MACRODCS_ADB_DB
+    #   username: postgres
+    #   password: Passwd#123
+    #   validationQuery: select 1
+    # dialect: pg
+
+
+vertica：10.123.39.52
+库：hxqmpp
+账号：pingan
+密码：

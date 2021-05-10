@@ -26,6 +26,7 @@ public class StudentServiceImpl implements IStudentService {
     @Override
     public List<StudentDTO> selectAll() {
         System.out.println(teacherFeignClient.selectAll().toString());
+        System.out.println("------>" + studentDAO.selectAll().toString());
         return studentDAO.selectAll();
     }
 }
