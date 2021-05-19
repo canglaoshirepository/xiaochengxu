@@ -20,7 +20,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @RestController
-@Api("学生控制器")
+@Api(tags = "学生控制器")
 @RequestMapping("/student/")
 @Slf4j
 @RefreshScope

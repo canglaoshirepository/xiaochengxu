@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface StudentMapper {
 
-    String getNameById(Integer id);
+    StudentDTO getNameById(Integer id);
 
     List<StudentDTO> selectAll();
 }
